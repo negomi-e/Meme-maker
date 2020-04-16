@@ -1,28 +1,22 @@
-/* .navatar {
+.navbar {
+    margin-bottom: 0;
+}
 
-    .brand-logo {
-      position:static;
-      margin-right:12px;
-      }
-    
-    #avatar {
-      height:inherit;
-      
-      > li, a {
-        height:inherit;
-        
-        img {
-          height:100%;
-          padding:8px;
-        }
-      }
-    }
-     */
-    /* } */
-    .bg-custom-1 {
-        background-color: #85144b;
-      }
-      
-      .bg-custom-2 {
-      background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-      }
+/* Add a gray background color and some padding to the footer */
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+  }
+
+  .carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none; 
+  }
+}
