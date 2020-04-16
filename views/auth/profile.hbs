@@ -1,39 +1,86 @@
 {{> weaknavbar}}
 
-<h2>Profile</h2>
+<div class="container padding-bottom-3x mb-2">
+  <div class="row">
+    <div class="col-lg-4">
+      <aside class="user-info-wrapper">
+        <div class="user-cover" style="background-image: url(https://bootdey.com/img/Content/bg1.jpg);">
+        </div>
+        <div class="user-info">
+          <div class="user-avatar">
+            <a class="edit-avatar" href="#"></a><img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+              alt="User"></div>
+          <div class="user-data">
+            <h4>Daniel Adams{{user.name}}</h4>
+            <span>Joined February 06, 2017 {{user.createAt}}</span>
+            <span><a href="/editprofilephoto">Edit profile picture</a></span>
+          </div>
+        </div>
+      </aside>
+      <nav class="list-group">
+        <a class="list-group-item" href="#"><i class="fa fa-home"></i>Admin {{user.status}}</a>
+        <a class="list-group-item" href="#"><i class="fa fa-user"></i>@dannyboy {{user.userName}}</a>
+        <a class="list-group-item with-badge active" href="#"><i class="fa fa-envelope"></i>email@email.com
+          {{user.email}}</a>
+      </nav>
+    </div>
+    <div class="col-lg-8">
+      <div class="padding-top-2x mt-2 hidden-lg-up"></div>
+      <!-- Memes Table-->
+      <div class="table-responsive wishlist-table margin-bottom-none">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Your memes</th>
+            </tr>
+          </thead>
+          <tbody>
 
-<div>
-<img>
-<h3>{{this.username}}</h3>
-<a href="/editprofilephoto">Edit profile picture</a>
+            {{!-- EXAMPLES --}}
+            <tr>
+              <td>
+                <div class="product-item">
+                  <a class="product-thumb" href="#"><img src="https://via.placeholder.com/220x180/FF0000/000000"
+                      alt="Product"></a>
+                  <div class="product-info">
+                    <h4 class="product-title"><a href="#">First meme</a></h4>
+                    <a href="/remove/{{id}}">Delete meme</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="product-item">
+                  <a class="product-thumb" href="#"><img src="https://via.placeholder.com/220x180/FF0000/000000"
+                      alt="Product"></a>
+                  <div class="product-info">
+                    <h4 class="product-title"><a href="#">Second meme</a></h4>
+                    <a href="/remove/{{id}}">Delete meme</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            {{!-- END OF EXAMPLES --}}
+            {{!-- HBS FORMAT --}}
+            {{#each meme}}
+            <tr>
+              <td>
+                <div class="product-item">
+                  <a class="product-thumb" href="#"><img src="{{this.img}}" alt="Product"></a>
+                  <div class="product-info">
+                    <h4 class="product-title"><a href="#">{{this.name}}</a></h4>
+                    <a href="/remove/{{this.id}}">Delete meme</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            {{/each}}
+            {{!-- End HBS FORMAT --}}
+          </tbody>
+        </table>
+      </div>
+      <hr class="mb-4">
+    </div>
+  </div>
 </div>
-
-<div>
-    <form action="/logout" method="GET">
-    <input type="button" value="Log out">
-    </form>
-    <form action="/create" method="GET">
-    <input type="button" value="Add meme">
-    </form>
-</div>
-
-<div>
-    <table style="">
-  <tr>
-    <th>Status:</th>
-    <th>{{this.status}}</th>
-  </tr>
-  <tr>
-    <td>Name:</td>
-    <td>{{this.username}}</td>
-  </tr>
-  <tr>
-    <td>Email address:</td>
-    <td>{{this.email}}</td>
-  </tr>
-</div>
-
-<div id="meme-display">
-</div>
-
-{{template 'meme'}}
