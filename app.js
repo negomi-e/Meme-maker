@@ -7,7 +7,7 @@ const hbs = require('hbs')
 const loginRouter = require('./router/login');
 const homeRouter = require('./router/home');
 const profileRouter = require('./router/profile');
-const collectionRouter = require('./router/collectionn');
+const collectionRouter = require('./router/collection');
 const createRouter = require('./router/create');
 const aboutRouter = require('./router/about');
  

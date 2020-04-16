@@ -9,26 +9,27 @@
             <a class="navbar-brand" href="/">TZ</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav ">
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="/collection">Meme Collection</a></li>
                 <li><a href="/about">About Services</a></li>
             </ul>
             {{#if isLoggedin}}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <ul class="dropdown nav navbar-nav navbar-right">
+                <li><a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown">
                     <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                        width="40" height="40" class="rounded-circle">
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="/profile/{{id}}">{{username}}</a>
-                    <a class="dropdown-item" href="/logout">Log Out</a>
-                </div>
-            </li>
+                        class="img-circle special-img" width="25" height="25" class="rounded-circle"><b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/profile"><i class="fa fa-cog"></i> Account</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                </ul>
+                </li>
+            </ul>
             {{else}}
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
             </ul>
             {{/if}}
         </div>
