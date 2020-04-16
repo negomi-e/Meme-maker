@@ -3,8 +3,6 @@ const { User } = require("../models/models.js");
 const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
-
-
   res.render('./auth/login');
 
 })

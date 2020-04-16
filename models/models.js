@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
+const categorySchema = mongoose.Schema({
+  mainCategory: { type: String },
+  subCategories: [{ type: String }]
+})
+
 
 const userSchema = mongoose.Schema({
-  email: String,
-  username: String,
+  email: { type: String, required: true, unique: true },
+  username: { type: String, required: true, unique: true },
   password: String,
   profilePic: {
     data: Buffer,
@@ -17,21 +22,29 @@ const userSchema = mongoose.Schema({
 })
 
 const memeSchema = mongoose.Schema({
-  author: {
-    type: mongoose.Types.ObjectId,
-    ref: 'User',
-  },
+  author: {type: String},
+  mainCategory: {type: String},
+  subCategory: {type: String},
   tags: [String],
   text: String,
   img: {
     data: Buffer,
     type: String,
-  }
+  },
+  createdAt: Date,
 })
 
+//Most recent
+memeSchema.statics.recent = async function(){
+  let recent = await this.find().sort('createdAt').limit(4).exec();
+  return recent;
+}
+
+
+const Category = mongoose.model('Category', categorySchema)
 const User = mongoose.model('User', userSchema);
 const Meme = mongoose.model('Meme', memeSchema);
 
 module.exports = {
-  User, Meme,
+  User, Meme, Category
 }

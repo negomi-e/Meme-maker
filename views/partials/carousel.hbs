@@ -1,0 +1,10 @@
+{{#each result}}
+<div class="carousel-cell">
+    <img src="{{this.img}}" alt="image" />
+    <div class="carousel-caption">
+        <h3>{{this.text}}</h3>
+        <p>@{{this.author}}</p>
+        <span>{{this.tags}}</span>
+    </div>
+</div>
+{{/each}}

@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 router.post('/', sessionChecker, async function (req, res, next) {
   try {
     const { email, username, password } = req.body;
-    console.log('PRE MONGOOSE', req.body);
+  
     
     const user = await new User({
       email,
@@ -29,11 +29,10 @@ router.post('/', sessionChecker, async function (req, res, next) {
     });
     await user.save();
     
-    console.log('MONGOOSE SAVED OBJECT', user);
-    console.log(req.session)
+    
     req.session.user = user;
 
-    console.log('NEW SESSION>>>>>>', req.session.user);
+    
     
     return res.redirect("/");
   } catch (error) {
