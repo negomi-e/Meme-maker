@@ -389,19 +389,27 @@ a.list-group-item, .list-group-item-action {
 
 
 /* CSS Carousel of text */
-.gallery {
+.category {
   background: #EEE;
+  ;
 }
 
-.gallery-cell {
-  width: 66%;
-  height: 200px;
+.subcategory {
+  background: #374250;
+  ;
+}
+
+.category-cell {
+  width: 100px;
+  height: 25px;
   margin-right: 10px;
   background: #9da9b9;
+  text-align: center;
 }
 
+
 /* cell number */
-.gallery-cell:before {
+.category-cell:before {
   display: block;
   text-align: center;
   line-height: 200px;
@@ -409,6 +417,8 @@ a.list-group-item, .list-group-item-action {
   color: white;
 }
 
+
+/* PICTURE CAROUSEL */
 .carousel {
   background: black;
 }
