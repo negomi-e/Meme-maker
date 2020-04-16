@@ -1,62 +1,78 @@
 {{> navbar}}
 
-<div>
-    <ul>
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="sidenav col-sm-2 ">
+    </div>
+    <div class="col-sm-8 text-left">
+      {{!-- TEST VERSION --}}
+      <div class="btn-group btn-group-justified">
+        <a href="/Dogs" class="btn btn-primary">Dogs</a>
+        <a href="/Cats" class="btn btn-primary">Cats</a>
+        <a href="/Penguins" class="btn btn-primary">Penguins</a>
+      </div>
+      {{!-- END TEST VERSION --}}
+
+      {{!-- HBS VERSION --}}
+      <div class="btn-group btn-group-justified">
         {{#each mainCat}}
-        <li><input type="button" value="{{this.title}}" /></li>
+        <a href="/{{this.name}}" class="btn btn-primary">{{this.name}}</a>
         {{/each}}
-    </ul>
-</div>
-
-{{!-- CLIENT SIDE RENDERING DEPENDING ON CATEGORY CHOICE --}}
-<div>
-    <ul>
+      </div>
+      {{!-- END HBS VERSION --}}
+    </div>
+<br>
+    {{!-- CLIENT SIDE RENDERING DEPENDING ON CATEGORY CHOICE --}}
+    {{!-- TEST VERSION SUBCAT --}}
+      <div class="btn-group btn-group-justified">
+        <a href="/Tigers" class="btn btn-primary">Tigers</a>
+        <a href="/Lions" class="btn btn-primary">Lions</a>
+        <a href="/Lazycats" class="btn btn-primary">Lazy Cats</a>
+        <a href="/Cheetahs" class="btn btn-primary">Cheetahs</a>
+        <a href="/sleepingcats" class="btn btn-primary">Sleeping Cats</a>
+      </div>
+      {{!-- END TEST VERSION --}}
+      {{!-- HBS VERSION --}}
+      <div class="btn-group btn-group-justified">
         {{#each subCat}}
-        <li><input type="button" value="{{this.title}}" /></li>
-        {{/each}}]
-    </ul>
-</div>
+        <a href="/{{this.name}}" class="btn btn-primary">{{this.name}}</a>
+        {{/each}}
+      </div>
+      {{!-- END HBS VERSION --}}
 
-{{!-- CLIENT SIDE RENDERING DEPENDING ON SUBCAT --}}
+    {{!-- CLIENT SIDE RENDERING DEPENDING ON SUBCAT --}}
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-    </ol>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+      </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
         {{#each meme}}
         {{!-- need to hide class 'active' when not displayed in client side --}}
-      <div class="item active">
-        <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
-        <div class="carousel-caption">
-          <h3>{{this.name}}</h3>
-          <p>{{this.author}}</p>
-        </div>      
+        <div class="item active">
+          <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
+          <div class="carousel-caption">
+            <h3>{{this.name}}</h3>
+            <p>{{this.author}}</p>
+          </div>
+        </div>
+        {{/each}}
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      {{/each}}
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-</div>
-
-{{!-- <div>
-    <ul>
-    {{#each meme}}
-    <img>
-    <li>{{this.memename}}</li>
-    <li><a href="/memes/{{this.author}}">{{this.author}}</a></li>
-    <li>{{this.tags}}</li>
-    {{/each}}
-    </ul>
-</div> --}}
+      <div class="sidenav col-sm-2 ">
+      </div>
+    </div>
+  </div>
