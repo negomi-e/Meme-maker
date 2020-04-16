@@ -25,8 +25,16 @@ function cookiesCleaner(req, res, next) {
   next();
 }
 
+function isLoggedin (req, res, next) {
+  if (req.session.user) {
+    res.locals.isLoggedin = true;
+  } 
+  next();
+}
+
 module.exports = {
   sessionChecker,
   nounSessionChecker,
   cookiesCleaner,
+  isLoggedin,
 }

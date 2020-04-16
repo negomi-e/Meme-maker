@@ -11,16 +11,16 @@
             <a class="edit-avatar" href="#"></a><img src="https://bootdey.com/img/Content/avatar/avatar1.png"
               alt="User"></div>
           <div class="user-data">
-            <h4>Daniel Adams{{user.name}}</h4>
-            <span>Joined February 06, 2017 {{user.createAt}}</span>
+            <h4>{{user.username}}</h4>
+            <span>Joined: {{user.joinedAt}}</span>
             <span><a href="/editprofilephoto">Edit profile picture</a></span>
           </div>
         </div>
       </aside>
       <nav class="list-group">
-        <a class="list-group-item" href="#"><i class="fa fa-home"></i>Admin {{user.status}}</a>
-        <a class="list-group-item" href="#"><i class="fa fa-user"></i>@dannyboy {{user.userName}}</a>
-        <a class="list-group-item with-badge active" href="#"><i class="fa fa-envelope"></i>email@email.com
+        <a class="list-group-item" href="#"><i class="fa fa-home"></i>{{user.status}}</a>
+        <a class="list-group-item" href="#"><i class="fa fa-user"></i>@{{user.username}}</a>
+        <a class="list-group-item with-badge active" href="#"><i class="fa fa-envelope"></i>
           {{user.email}}</a>
       </nav>
     </div>

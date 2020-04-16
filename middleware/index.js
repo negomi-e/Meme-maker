@@ -1,4 +1,4 @@
-module.exports = function (app) {
+const sessionapp  = function (app) {
   const express = require("express");
   const morgan = require("morgan");
   const cookieParser = require("cookie-parser");
@@ -34,3 +34,7 @@ module.exports = function (app) {
   app.use(cookiesCleaner);
 
 };
+
+module.exports = {
+  sessionapp
+}
