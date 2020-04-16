@@ -1,0 +1,30 @@
+{{> navbar}}
+
+<div>
+    <ul>
+        {{#each mainCat}}
+        <li><input type="button" value="{{this.title}}" /></li>
+        {{/each}}
+    </ul>
+</div>
+
+{{!-- CLIENT SIDE RENDERING DEPENDING ON CATEGORY CHOICE --}}
+<div>
+    <ul>
+        {{#each subCat}}
+        <li><input type="button" value="{{this.title}}" /></li>
+        {{/each}}]
+    </ul>
+</div>
+
+{{!-- CLIENT SIDE RENDERING DEPENDING ON SUBCAT --}}
+<div>
+    <ul>
+    {{#each meme}}
+    <img>
+    <li>{{this.memename}}</li>
+    <li><a href="/memes/{{this.author}}">{{this.author}}</a></li>
+    <li>{{this.tags}}</li>
+    {{/each}}
+    </ul>
+</div>

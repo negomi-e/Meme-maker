@@ -1,0 +1,24 @@
+{{> weaknavbar}}
+
+<div class="container row">
+    <div class="jumbotron col-sm-4 pull-center">
+        <h2> Register</h2>
+        <form action="/registration" method="post">
+            <div>
+                <label>Username:</label>
+                <input type="text" name="username" placeholder="Enter new username">
+            </div>
+            <div>
+                <label>Email:</label>
+                <input type="text" name="email" placeholder="Enter your email">
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password" placeholder="Enter password">
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" color='black' value="Sign up!"/>
+            </div>
+        </form>
+    </div>
+</div>
