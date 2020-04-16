@@ -1,24 +1,43 @@
 {{> weaknavbar}}
 
-<div class="container row">
-    <div class="jumbotron col-sm-4 pull-center">
-        <h2> Register</h2>
-        <form action="/reg" method="POST">
+
+
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="sidenav col-sm-4 ">
+    </div>
+    <div class="col-sm-5 text-left jumbotron pull-center"> 
+        <h2><label>Register</label></h2>
+        <form action="/registration" method="POST">
+
             <div>
                 <label>Username:</label>
+                <br>
                 <input type="text" name="username" placeholder="Enter new username">
             </div>
+            <br>
             <div>
                 <label>Email:</label>
+                <br>
                 <input type="text" name="email" placeholder="Enter your email">
             </div>
+            <br>
             <div>
                 <label>Password:</label>
+                <br>
                 <input type="password" name="password" placeholder="Enter password">
+                <br>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your login with anyone else.</small>
             </div>
+            <br>
             <div>
                 <input class="btn btn-primary" type="submit" color='black' value="Sign up!"/>
             </div>
         </form>
     </div>
+
+    <div class="sidenav col-sm-3 ">
+    </div>
+</div>
+
 </div>

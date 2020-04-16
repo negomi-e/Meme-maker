@@ -11,7 +11,13 @@ const collectionRouter = require('./router/collection');
 const createRouter = require('./router/create');
 const aboutRouter = require('./router/about');
 
+const registerRouter = require('./router/reg')
+
  
+const path = require('path');
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
@@ -29,11 +35,13 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 app.use('/login', loginRouter );
-app.use('/home', homeRouter);
+// Don't need same as index
+// app.use('/home', homeRouter);
 app.use('/collection', collectionRouter);
 app.use('/create', createRouter);
 app.use('/about', aboutRouter);
 app.use('/profile', profileRouter);
+app.use('/register', registerRouter);
 
 
 
