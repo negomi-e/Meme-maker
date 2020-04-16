@@ -10,7 +10,9 @@ const profileRouter = require('./router/profile');
 const collectionRouter = require('./router/collection');
 const createRouter = require('./router/create');
 const aboutRouter = require('./router/about');
+
 const registerRouter = require('./router/reg')
+
  
 const path = require('path');
 
@@ -23,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 // HBS PARTIALS AND TEMPLATES
 hbs.registerPartials(`${__dirname}/views/partials`)
 hbs.registerHelper('template', (templateName) => {
-  const data = fs.readFileSync(`./public/views/partials/${templateName}.hbs`, 'utf8');
+  const data = fs.readFileSync(`./views/partials/${templateName}.hbs`, 'utf8');
   return data;
 });
 
@@ -40,6 +42,7 @@ app.use('/create', createRouter);
 app.use('/about', aboutRouter);
 app.use('/profile', profileRouter);
 app.use('/register', registerRouter);
+
 
 
 const port = process.env.PORT || 3000;
