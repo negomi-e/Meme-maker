@@ -5,6 +5,10 @@ const userSchema = mongoose.Schema({
   email: String,
   name: String,
   password: String,
+  profilePic: {
+    data: Buffer,
+    type: String,
+  }
   isAdmin: {
     type: Boolean,
     default: false,
