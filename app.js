@@ -10,6 +10,7 @@ const profileRouter = require('./router/profile');
 const collectionRouter = require('./router/collection');
 const createRouter = require('./router/create');
 const aboutRouter = require('./router/about');
+const registerRouter = require('./router/reg')
  
 const path = require('path');
 
@@ -32,11 +33,13 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 app.use('/login', loginRouter );
-app.use('/home', homeRouter);
+// Don't need same as index
+// app.use('/home', homeRouter);
 app.use('/collection', collectionRouter);
 app.use('/create', createRouter);
 app.use('/about', aboutRouter);
 app.use('/profile', profileRouter);
+app.use('/register', registerRouter);
 
 
 const port = process.env.PORT || 3000;
