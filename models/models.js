@@ -9,6 +9,7 @@ const userSchema = mongoose.Schema({
     data: Buffer,
     type: String,
   },
+  joinedAt: Date,
   isAdmin: {
     type: Boolean,
     default: false,

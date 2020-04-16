@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
 
 
-router.post('/', async function (req, res, next) {
+router.post('/', sessionChecker, async function (req, res, next) {
   try {
     const { email, username, password } = req.body;
     console.log('PRE MONGOOSE', req.body);
@@ -24,12 +24,13 @@ router.post('/', async function (req, res, next) {
     const user = await new User({
       email,
       username,
-      password: await bcrypt.hash(password, saltRounds)
+      password: await bcrypt.hash(password, saltRounds),
+      joinedAt: new Date()
     });
     await user.save();
     
     console.log('MONGOOSE SAVED OBJECT', user);
-    
+    console.log(req.session)
     req.session.user = user;
 
     console.log('NEW SESSION>>>>>>', req.session.user);
