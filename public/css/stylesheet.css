@@ -1,28 +1,53 @@
-/* .navatar {
+.navbar {
+    margin-bottom: 0;
+}
 
-    .brand-logo {
-      position:static;
-      margin-right:12px;
-      }
+/* Add a gray background color and some padding to the footer */
+footer {
+    background-color: #555;
+    padding: 25px;
+    color: white;
+  }
+
+  .carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
+}
+
+
+
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 450px}
     
-    #avatar {
-      height:inherit;
-      
-      > li, a {
-        height:inherit;
-        
-        img {
-          height:100%;
-          padding:8px;
-        }
-      }
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 50px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+body{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.special-img 
+{
+    position: relative;
+    top: -5px;
+    float: left;
+    left: -5px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+ /* On small screens, set height to 'auto' for sidenav and grid */
+ @media screen and (max-width: 767px) {
+    .sidenav {
+      display: hidden;
     }
-     */
-    /* } */
-    .bg-custom-1 {
-        background-color: #85144b;
+    .row.content {height:auto;} 
+    .carousel-caption {
+        display: none; 
       }
-      
-      .bg-custom-2 {
-      background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-      }
+  }
