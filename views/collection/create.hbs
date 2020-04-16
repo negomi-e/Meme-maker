@@ -1,32 +1,43 @@
 {{> navbar}}
 
-<h1>Meme maker</h1>
 
-<form class="image-selector">
-    <input class="controls__input" type="file" id="imageLoader" name="imageLoader" />
-</form>
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="sidenav col-sm-2 ">
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Meme maker</h1>
 
-<form class="text" action="/save" method="POST">
-    <label>Text: <input class="controls__input" id="text" type="text" value="" /></label>
-    <label>Font: <input class="controls__input" id="font" type="text" value="" /></label>
-    <label>Colour: <input class="controls__input" id="font" type="text" value="" /></label>
-    <label>Size: <input class="controls__input" id="font" type="text" value="" /></label>
-    <label>Category:</label>
-    <input list="mainCategory" name="mainCat">
-  <datalist id="mainCategory">
-      {{#each category}}
-    <option value="{{this.mainCategory}}">
-    {{/each}}
-  </datalist>
-  <label>Sub category:</label>
-    <input list="subCategory" name="mainCat">
-  <datalist id="subCategory">
-      {{#each mainCategory}}
-    <option value="{{this.subCategory}}">
-    {{/each}}
-  </datalist>
-    <label>Tags: <input class="controls__input" id="font" type="text" value="" /></label>
-    <input type="submit" value="Save">
-    <label>Add watermark:</label>
-    <input type="checkbox" id="watermark" name="vehicle1" value="@{{username}}"
-</form>
+      <form class="image-selector">
+        <input class="controls__input" type="file" id="imageLoader" name="imageLoader" />
+      </form>
+
+      <form class="text" action="/save" method="POST">
+        <label>Text: <input class="controls__input" id="text" type="text" value="" /></label>
+        <label>Font: <input class="controls__input" id="font" type="text" value="" /></label>
+        <label>Colour: <input class="controls__input" id="font" type="text" value="" /></label>
+        <label>Size: <input class="controls__input" id="font" type="text" value="" /></label>
+        <label>Category:</label>
+        <input list="mainCategory" name="mainCat">
+        <datalist id="mainCategory">
+          {{#each category}}
+          <option value="{{this.mainCategory}}">
+            {{/each}}
+        </datalist>
+        <label>Sub category:</label>
+        <input list="subCategory" name="mainCat">
+        <datalist id="subCategory">
+          {{#each mainCategory}}
+          <option value="{{this.subCategory}}">
+            {{/each}}
+        </datalist>
+        <label>Tags: <input class="controls__input" id="font" type="text" value="" /></label>
+        <input type="submit" value="Save">
+        <label>Add watermark:</label>
+        <input type="checkbox" id="watermark" name="vehicle1" value="@{{username}}">
+      </form>
+    </div>
+    <div class="sidenav col-sm-2 ">
+    </div>
+  </div>
+</div>

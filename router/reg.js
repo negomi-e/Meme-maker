@@ -10,7 +10,6 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-
   res.render('./auth/register');
 
 })
@@ -20,6 +19,8 @@ router.get('/', (req, res) => {
 router.post('/', async function (req, res, next) {
   try {
     const { email, username, password } = req.body;
+    console.log('PRE MONGOOSE', req.body);
+    
     const user = await new User({
       email,
       username,
@@ -27,7 +28,12 @@ router.post('/', async function (req, res, next) {
     });
     await user.save();
     
+    console.log('MONGOOSE SAVED OBJECT', user);
+    
     req.session.user = user;
+
+    console.log('NEW SESSION>>>>>>', req.session.user);
+    
     return res.redirect("/");
   } catch (error) {
     next(error);
