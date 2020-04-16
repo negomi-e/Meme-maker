@@ -1,0 +1,24 @@
+{{> weaknavbar}}
+
+<div class="container row">
+    <div class="jumbotron col-sm-4 pull-center">
+        <form action="/login" method="post">
+        <label for="exampleInputEmail1">Login</label>
+            <div>
+                <label>Username:</label>
+                <input type="text" name="username"  placeholder="Enter login">
+            </div>
+            <br/>
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password"  placeholder="Enter password">
+               <br/>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your login with anyone else.</small>
+            </div>
+            <br/>
+            <div>
+                <input class="btn btn-primary" color="black" type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+</div>

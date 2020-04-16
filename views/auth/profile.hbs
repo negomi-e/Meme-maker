@@ -1,0 +1,39 @@
+{{> weaknavbar}}
+
+<h2>Profile</h2>
+
+<div>
+<img>
+<h3>{{this.username}}</h3>
+<a href="/editprofilephoto">Edit profile picture</a>
+</div>
+
+<div>
+    <form action="/logout" method="GET">
+    <input type="button" value="Log out">
+    </form>
+    <form action="/create" method="GET">
+    <input type="button" value="Add meme">
+    </form>
+</div>
+
+<div>
+    <table style="">
+  <tr>
+    <th>Status:</th>
+    <th>{{this.status}}</th>
+  </tr>
+  <tr>
+    <td>Name:</td>
+    <td>{{this.username}}</td>
+  </tr>
+  <tr>
+    <td>Email address:</td>
+    <td>{{this.email}}</td>
+  </tr>
+</div>
+
+<div id="meme-display">
+</div>
+
+{{template 'meme'}}
