@@ -22,7 +22,7 @@ const catDiv = document.getElementById('category-search')
 mainCat.addEventListener('click', async (event) => {
     event.preventDefault()
     const category = event.target.text
-    
+
     let response = await fetch(event.target.href, {
         method: 'GET',
         headers: {
@@ -33,13 +33,20 @@ mainCat.addEventListener('click', async (event) => {
 
     const hbsResponse = await fetch('/partials/subcategory.hbs');
     const hbs = await hbsResponse.text();
-    
+
     const template = window.Handlebars.compile(hbs);
-    $('#subcategory').innerHTML = template({
-        subCat: options
+
+    var elem = document.getElementById('subcategory');
+    var flkty = new Flickity(elem, {
+        // options
+        wrapAround: true,
+        contain: true
     });
 
-    // const flkty = new Flickity('#subcategory .category', {});
+    elem.innerHTML = template({
+        subCat: options.subcats
+    });
+
 })
 
 //Render carousel once subcat selected
@@ -67,7 +74,7 @@ subCat.addEventListener('click', async (event) => {
 
 //Render memes by tag search
 search.addEventListener('input', async (event) => {
-    console.log(event.target.value)
+
     event.preventDefault();
     let response = await fetch(event.target.value, {
         method: 'POST',

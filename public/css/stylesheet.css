@@ -400,7 +400,7 @@ a.list-group-item, .list-group-item-action {
 }
 
 .category-cell {
-  width: 100px;
+  width: 75%;;
   height: 25px;
   margin-right: 10px;
   background: #9da9b9;

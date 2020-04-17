@@ -1,5 +1,6 @@
-<div class="subcategory js-flickity" data-flickity-options='{ "wrapAround": true }'>
+<div class="category " data-flickity-options='{ "wrapAround": true }'>
     {{#each subCat}}
-    <div class="category-cell"><a href="/collection/subcat/{{this}}">{{this}}</a></div>
+    <div class="category-cell"><a href="/collection/subcat/{{this.category}}">{{this.category}}</a></div>
     {{/each}}
 </div>
+

@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
 router.post("/", async (req, res) => {
     const { username, password } = req.body;
-    console.log('>>>>>>>>>>>>>>>')
+    
     const user = await User.findOne({ username });
 
     if (user && (await bcrypt.compare(password, user.password))) {

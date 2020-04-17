@@ -3,7 +3,7 @@ const {User, Meme} = require('../models/models');
 
 
 router.get('/', async (req, res) => {
-  console.log(req.session.user)
+  // console.log(req.session.user)
   let user = req.session.user;
   let memes = await Meme.find({author: user.username})
   res.render('./auth/profile', {user, userMemes: memes})
