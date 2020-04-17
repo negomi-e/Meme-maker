@@ -34,7 +34,7 @@ app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'hbs');
 app.use(express.static('public'));
 app.use(express.static('views'))
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 
 sessionapp(app);
 app.use(isLoggedin);

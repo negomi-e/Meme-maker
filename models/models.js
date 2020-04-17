@@ -28,10 +28,7 @@ const memeSchema = mongoose.Schema({
   subCategory: {type: String},
   tags: [String],
   text: String,
-  img: {
-    data: Buffer,
-    type: String,
-  },
+  img: String,
   createdAt: Date,
 })
 

@@ -35,12 +35,4 @@ router.post('/addAvatar', upload.single('avatar'), async (req, res) => {
   res.render('auth/profile', { pathImage })
 })
 
-// // удаление картинки из базы и папки
-// router.delete('/delete', async (req, res) => {
-//   let id = req.body.elem;
-//   let img = await Descript.findByIdAndDelete(id);
-//   fs.unlinkSync(`/home/adgem/faza2/waiting/hard-photo-reddit/public/images/` + img.url);
-//   res.end();
-// })
-
 module.exports = router;
