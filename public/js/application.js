@@ -65,4 +65,17 @@ search.addEventListener('input', async (event) => {
 })
 
 
+
 //CREATE class "active" move depening on which page the nav bar is in
+window.addEventListener('DOMContentLoaded', (event)=>{
+    const nav = document.getElementsByClassName('nav')
+    nav.forEach(element => {
+        if(element.classList === 'active'){
+            element.classList.remove('active')
+        }
+
+        if(element.href == document.URL){
+            element.classList.add('active')
+        }  
+    });
+})
