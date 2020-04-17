@@ -57,6 +57,8 @@ hbs.registerHelper('template', (templateName) => {
   return data;
 });
 
+
+
 app.use('/reg', reqRouter);
 
 app.get('/', (req, res) => {

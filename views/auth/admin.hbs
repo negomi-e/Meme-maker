@@ -11,7 +11,7 @@
             <a class="edit-avatar" href="#"></a><img src="https://bootdey.com/img/Content/avatar/avatar1.png"
               alt="User"></div>
           <div class="user-data">
-            <h4>{{user.username}}{{#if admin}}<img src="/images/isAdmin.png" height="30px"> {{/if}}</h4>
+            <h4>{{user.username}}</h4>
             <span>Joined: {{user.joinedAt}}</span>
             <span><a href="/editprofilephoto">Edit profile picture</a></span>
           </div>
@@ -20,7 +20,7 @@
       <nav class="list-group">
         <a class="list-group-item" href="#"><i class="fa fa-home"></i>{{user.status}}</a>
         <a class="list-group-item" href="#"><i class="fa fa-user"></i>@{{user.username}}</a>
-        <a class="list-group-item with-badge active" href="#"><i class="fa fa-envelope"></i>  
+        <a class="list-group-item with-badge active" href="#"><i class="fa fa-envelope"></i>
           {{user.email}}</a>
       </nav>
     </div>
@@ -30,19 +30,6 @@
       <div class="table-responsive wishlist-table margin-bottom-none">
         <table class="table">
           <thead>
-            {{#if admin}}
-            <ul>{{#each allUser}}
-
-              <li>
-                <p><b>Login:</b> {{username}}</p>
-                <p><b>Email:</b> {{email}}</p>
-                <form method="POST" action="/profile/delete/{{id}}">
-                  <p><button type="submit">Удалить</button></p>
-                </form>
-              </li>
-              {{/each}}</ul>
-
-            {{/if}}
             <tr>
               <th>Your memes</th>
             </tr>

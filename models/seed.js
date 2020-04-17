@@ -23,3 +23,5 @@ async function createCategory(name, array){
 // createCategory('Video Games', cat2)
 // createCategory('Animals', cat3)
 // createCategory('People', cat4)
+
+
