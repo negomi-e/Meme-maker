@@ -11,7 +11,9 @@
         <div class="edit-meme col-md-6">
           <input class="controls__input" type="file" id="imageLoader" name="imageLoader" />
           <label for="imageLoader">Upload a Picture</label>
+          
           <input type="submit" value="Create meme" id="createMeme">
+          
           <p>Your Meme:</p>
           <div id="edit-meme">
             <canvas id="canvas">Your browser do not support meme creation, sorry.</canvas>
@@ -23,6 +25,7 @@
 
           <h4>Add your personal text</h4>
 
+
           <form name="addText" class="text" action="/save" method="POST" id="editForm">
             <p>Text:</p>
             <input class="controls__input" id="text" type="text" value="" />
@@ -32,7 +35,7 @@
               <option value="serif">Serif</option>
               <option value="Arial">Arial</option>
               <option value="Helvetica">Helvetica</option>
-           
+
             </select>
 
             <p>Color:</p>
@@ -49,6 +52,19 @@
               <option value="40px">40</option>
               <option value="60px">60</option>
             </select>
+
+            <p>Main Category:</p>
+            <select id='mainCat'>
+              {{#each mainCat}}
+              <option value="{{this.mainCategory}}">{{this.mainCategory}}</option>
+              {{/each}}
+            </select>
+
+            <p>Sub Category:</p>
+            <select id='subCat'>
+            
+            </select>
+
 
             <input type="submit" value="Add text" id="addTextSubmit">
           </form>
