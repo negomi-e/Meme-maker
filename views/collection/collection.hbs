@@ -7,15 +7,19 @@
     <div class="col-sm-8 text-left">
       {{!-- ADD MEME BUTTON --}}
       {{#if isLoggedin}}
-      <form action="/create" method="GET">
-        <button type="submit">Create a meme</button>
+      <br>
+      <form class="form-inline" action="/create" method="GET">
+        <button class="form-control mr-sm-2" type="submit">Create a meme</button>
       </form>
+      <br>
       {{/if}}
+
 
       {{!-- SEARCH BY TAG --}}
       <div id="search-tag">
-        <form class="form-inline" action="/collection/search" method="GET">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search by tag name" aria-label="Search">
+        <form class="form-inline" action="/collection/search" method="POST">
+          <input class="form-control mr-sm-2" type="search" value="" placeholder="Search by tag name"
+            aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"
               aria-hidden="true"></i></button>
         </form>
@@ -28,38 +32,26 @@
 
 
       {{!-- SEARCH BY CATEGORY --}}
-
-      {{!-- TEST VERSION --}}
+      <div id="category-search">
       <div id="maincategory">
-
         <div class="category js-flickity" data-flickity-options='{ "wrapAround": true }'>
+          {{#each mainCat}}
+          <div class="category-cell"><a href="/collection/maincat/{{this.mainCategory}}">{{this.mainCategory}}</a></div>
+          {{/each}}
 
-          <div class="category-cell"><a href="/collection/maincat">Dog</a></div>
+          {{!-- <div class="category-cell"><a href="/collection/maincat">Dog</a></div>
           <div class="category-cell"><a href="/collection/maincat">Cat</a></div>
-          <div class="category-cell"><a href="/collection/maincat">Penguin</a></div>
+          <div class="category-cell"><a href="/collection/maincat">Penguin</a></div> --}}
 
         </div>
       </div>
       <br>
       <br>
-      {{!-- END TEST VERSION --}}
-
-      {{!-- HBS VERSION --}}
-      {{!-- <div id="maincategory"> --}}
-      {{!-- <div class="category js-flickity" data-flickity-options='{ "wrapAround": true }'>
-        {{#each mainCat}}
-        <div class="category-cell"><a href="/collection/maincat">{{this.name}}</a></div>
-        {{/each}}
-      </div> --}}
-      {{!-- </div> --}}
-      {{!-- END HBS VERSION --}}
-
-      <br>
 
       {{!-- CLIENT SIDE RENDERING DEPENDING ON CATEGORY CHOICE --}}
-      
+
       <div id="subcategory">
-        {{> 'subcategory'}}
+
         {{!-- <div class="category js-flickity" data-flickity-options='{ "wrapAround": true }'>
 
           <div class="category-cell"><a href="/collection/subcat/Tigers">Tigers</a></div>
@@ -71,8 +63,11 @@
         </div> --}}
       </div>
       
-      
+      <template>
+        {{template 'subcategory'}}
+      </template>
 
+</div>
       <br>
       <br>
       {{!-- CLIENT SIDE RENDERING DEPENDING ON SUBCAT --}}
@@ -109,6 +104,9 @@
 </div>
 </div>
 
+
+
 <template>
   {{template 'carousel'}}
 </template>
+

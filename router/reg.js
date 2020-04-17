@@ -5,10 +5,6 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const router = express.Router();
 
-
-
-
-
 router.get('/', (req, res) => {
   res.render('./auth/register');
 
