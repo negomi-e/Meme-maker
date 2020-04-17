@@ -65,17 +65,20 @@ search.addEventListener('input', async (event) => {
 })
 
 
-
+const nav = document.getElementsByClassName('nav')
 //CREATE class "active" move depening on which page the nav bar is in
-window.addEventListener('DOMContentLoaded', (event)=>{
-    const nav = document.getElementsByClassName('nav')
-    nav.forEach(element => {
-        if(element.classList === 'active'){
-            element.classList.remove('active')
-        }
+nav.addEventListener('click', (event)=>{
+   nav.querySelector('li.active').classList.replace('active', '')
+   console.log(event.target);
+   
+   event.target.classList.add('active')
+    // nav.forEach(element => {
+    //     if(element.classList == 'active'){
+    //         element.classList.remove('active')
+    //     }
 
-        if(element.href == document.URL){
-            element.classList.add('active')
-        }  
-    });
+    //     if(element.href == document.URL){
+    //         element.classList.add('active')
+    //     }  
+    // });
 })
