@@ -63,9 +63,6 @@ hbs.registerHelper('template', (templateName) => {
 
 app.use('/reg', reqRouter);
 
-// app.get('/', (req, res) => {
-//   res.render('index')
-// })
 app.use('/login', loginRouter);
 app.use('/', homeRouter);
 app.use('/collection', collectionRouter);
