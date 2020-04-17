@@ -11,6 +11,7 @@ const userSchema = mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: String,
   profilePic: {
+    img: String,
     data: Buffer,
     type: String,
   },
@@ -18,7 +19,7 @@ const userSchema = mongoose.Schema({
   isAdmin: {
     type: Boolean,
     default: false,
-  }
+      }
 })
 
 const memeSchema = mongoose.Schema({

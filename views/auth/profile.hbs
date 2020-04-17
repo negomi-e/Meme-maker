@@ -8,19 +8,26 @@
         </div>
         <div class="user-info">
           <div class="user-avatar">
-            <a class="edit-avatar" href="#"></a><img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+            <a class="edit-avatar" href="#"></a><img src="/{{pathImage}}"
               alt="User"></div>
           <div class="user-data">
             <h4>{{user.username}}{{#if admin}}<img src="/images/isAdmin.png" height="30px"> {{/if}}</h4>
             <span>Joined: {{user.joinedAt}}</span>
-            <span><a href="/editprofilephoto">Edit profile picture</a></span>
+            <span><a href=`/{{pathImage}}`>Edit profile picture
+
+                <form action="/profile/addAvatar" method="POST" enctype="multipart/form-data" >
+                  <input type="file" name="avatar">
+                  <input type="submit">
+                </form>
+
+              </a></span>
           </div>
         </div>
       </aside>
       <nav class="list-group">
         <a class="list-group-item" href="#"><i class="fa fa-home"></i>{{user.status}}</a>
         <a class="list-group-item" href="#"><i class="fa fa-user"></i>@{{user.username}}</a>
-        <a class="list-group-item with-badge active" href="#"><i class="fa fa-envelope"></i>  
+        <a class="list-group-item with-badge active" href="#"><i class="fa fa-envelope"></i>
           {{user.email}}</a>
       </nav>
     </div>
