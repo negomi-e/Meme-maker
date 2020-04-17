@@ -22,7 +22,7 @@ const catDiv = document.getElementById('category-search')
 mainCat.addEventListener('click', async (event) => {
     event.preventDefault()
     const category = event.target.text
-    
+
     let response = await fetch(event.target.href, {
         method: 'GET',
         headers: {
@@ -33,13 +33,21 @@ mainCat.addEventListener('click', async (event) => {
 
     const hbsResponse = await fetch('/partials/subcategory.hbs');
     const hbs = await hbsResponse.text();
-    
-    const template = window.Handlebars.compile(hbs);
-    $('#subcategory').innerHTML = template({
-        subCat: options
-    });
 
-    // const flkty = new Flickity('#subcategory .category', {});
+    const template = window.Handlebars.compile(hbs);
+
+    var elem = document.getElementById('subcategory');
+
+    
+    elem.innerHTML = template({
+        subCat: options.subcats
+    });
+    
+    var flkty = new Flickity(elem.querySelector('.category'), {
+        // options
+        wrapAround: true,
+        contain: true
+    });
 })
 
 //Render carousel once subcat selected
@@ -54,11 +62,11 @@ subCat.addEventListener('click', async (event) => {
 
     let result = await response.json();
 
-    const hbsResponse = await fetch('/views/partials/carousel.hbs');
+    const hbsResponse = await fetch('/partials/carousel.hbs');
     const hbs = await hbsResponse.text();
     const template = window.Handlebars.compile(hbs);
-    carousel.innerHTML += template({
-        result
+    carousel.innerHTML = template({
+        result: result.memes
     });
 }
 )
@@ -66,25 +74,25 @@ subCat.addEventListener('click', async (event) => {
 
 
 //Render memes by tag search
-search.addEventListener('input', async (event) => {
-    console.log(event.target.value)
-    event.preventDefault();
-    let response = await fetch(event.target.value, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ input: event.target.value })
-    })
+// search.addEventListener('input', async (event) => {
 
-    let result = await response.json();
+//     event.preventDefault();
+//     let response = await fetch(event.target.value, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ input: event.target.value })
+//     })
 
-    const hbsResponse = await fetch('/views/partials/carousel.hbs');
-    const hbs = await hbsResponse.text();
-    const template = window.Handlebars.compile(hbs);
-    carousel.innerHTML += template({
-        result
-    });
+//     let result = await response.json();
 
-})
+//     const hbsResponse = await fetch('/views/partials/carousel.hbs');
+//     const hbs = await hbsResponse.text();
+//     const template = window.Handlebars.compile(hbs);
+//     carousel.innerHTML += template({
+//         result
+//     });
+
+// })
 

@@ -14,18 +14,20 @@ async function createCategory(name, array) {
   mongoose.connect(connectionAddress, { useNewUrlParser: true, useUnifiedTopology: true });
   const db = mongoose.connections;
   db.concat('error', console.error.bind(console, 'Error with MongoDB: '));
-  console.log(array);
+  let modelArr = array.map((el)=>{
+    return {category: el}
+  })
 
   const category = await new Category({
     mainCategory: name,
   })
 
-  for (let index = 0; index < array.length; index++) {
-    category.subCategories.push(array[index])
+  for (let index = 0; index < modelArr.length; index++) {
+    category.subCategories.push(modelArr[index])
 
   }
   await category.save();
-  console.log(category);
+  // console.log(category);
 }
 
 // createCategory('Music', cat1)

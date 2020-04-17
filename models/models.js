@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const categorySchema = mongoose.Schema({
   mainCategory: { type: String },
-  subCategories: [{ type: String }]
+  subCategories: [{category: {type: String}}]
 })
 
 

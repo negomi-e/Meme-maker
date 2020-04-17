@@ -15,15 +15,15 @@
       {{/if}}
 
 
-      {{!-- SEARCH BY TAG --}}
-      <div id="search-tag">
+      {{!-- SEARCH BY TAG FEATURE FOR LATER DATE--}}
+      {{!-- <div id="search-tag">
         <form class="form-inline" action="/collection/search" method="POST">
           <input class="form-control mr-sm-2" type="search" value="" placeholder="Search by tag name"
             aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"
               aria-hidden="true"></i></button>
         </form>
-      </div>
+      </div> --}}
       {{!-- END --}}
 
 
@@ -34,15 +34,10 @@
       {{!-- SEARCH BY CATEGORY --}}
       <div id="category-search">
       <div id="maincategory">
-        <div class="category js-flickity" data-flickity-options='{ "wrapAround": true }'>
+        <div class="category js-flickity" data-flickity-options='{ "wrapAround": true}'>
           {{#each mainCat}}
           <div class="category-cell"><a href="/collection/maincat/{{this.mainCategory}}">{{this.mainCategory}}</a></div>
           {{/each}}
-
-          {{!-- <div class="category-cell"><a href="/collection/maincat">Dog</a></div>
-          <div class="category-cell"><a href="/collection/maincat">Cat</a></div>
-          <div class="category-cell"><a href="/collection/maincat">Penguin</a></div> --}}
-
         </div>
       </div>
       <br>
@@ -52,20 +47,7 @@
 
       <div id="subcategory">
 
-        {{!-- <div class="category js-flickity" data-flickity-options='{ "wrapAround": true }'>
-
-          <div class="category-cell"><a href="/collection/subcat/Tigers">Tigers</a></div>
-          <div class="category-cell"><a href="/collection/subcat/Lions">Lions</a></div>
-          <div class="category-cell"><a href="/collection/subcat/lazycats">Lazy Cats</a></div>
-          <div class="category-cell"><a href="/collection/subcat/Cheetahs">Cheetahs</a></div>
-          <div class="category-cell"><a href="/collection/subcat/sleepingcats">Sleeping Cats</a></div>
-
-        </div> --}}
       </div>
-      
-      <template>
-        {{template 'subcategory'}}
-      </template>
 
 </div>
       <br>
@@ -104,9 +86,4 @@
 </div>
 </div>
 
-
-
-<template>
-  {{template 'carousel'}}
-</template>
 

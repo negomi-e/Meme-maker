@@ -63,12 +63,11 @@ hbs.registerHelper('template', (templateName) => {
 
 app.use('/reg', reqRouter);
 
-app.get('/', (req, res) => {
-  res.render('index')
-})
+// app.get('/', (req, res) => {
+//   res.render('index')
+// })
 app.use('/login', loginRouter);
-// Can we delete index.js?
-app.use('/home', homeRouter);
+app.use('/', homeRouter);
 app.use('/collection', collectionRouter);
 app.use('/create', createRouter);
 app.use('/about', aboutRouter);

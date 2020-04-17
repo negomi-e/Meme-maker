@@ -9,17 +9,17 @@ router.get('/', async (req, res) => {
 router.get('/maincat/:name', async (req, res)=>{
   let maincat = req.params.name;
   let model = await Category.findOne({mainCategory: maincat});
-  console.log(model);
+  // console.log(model);
   
   let subcats = model.subCategories;
-  console.log(subcats);
+  // console.log(subcats);
   
   res.json({subcats})
 })
 
 router.get('/subcat/:name', async (req, res)=>{
   let subcat = req.params.name;
-  let memes = await Meme.findAll({subCategory: subcat});
+  let memes = await Meme.find({subCategory: subcat});
   res.json({memes})
 })
 
