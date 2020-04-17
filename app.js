@@ -2,14 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const session = require("express-session");
-const {sessionapp} = require('./middleware/index')
+const { sessionapp } = require('./middleware/index')
 const { isLoggedin } = require('./middleware/auth')
 const reqRouter = require('./router/reg');
+const fs = require('fs')
 
 
 const connectionAddress = 'mongodb://localhost:27017/meme';
 mongoose.connect(connectionAddress, { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connections; 
+const db = mongoose.connections;
 db.concat('error', console.error.bind(console, 'Error with MongoDB: '));
 
 // app.use(cookieParser());
@@ -25,7 +26,7 @@ const aboutRouter = require('./router/about');
 const registerRouter = require('./router/reg')
 const logoutRouter = require('./router/logout')
 
- 
+
 const path = require('path');
 
 // view engine setup
@@ -61,7 +62,7 @@ app.use('/reg', reqRouter);
 app.get('/', (req, res) => {
   res.render('index')
 })
-app.use('/login', loginRouter );
+app.use('/login', loginRouter);
 // Can we delete index.js?
 app.use('/home', homeRouter);
 app.use('/collection', collectionRouter);

@@ -14,12 +14,15 @@
 
       {{!-- SEARCH BY TAG --}}
       <div id="search-tag">
-<form class="form-inline">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search tags" aria-label="Search">
+        <form class="form-inline" action="/collection/search" method="GET">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search by tag name" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"
+              aria-hidden="true"></i></button>
         </form>
       </div>
       {{!-- END --}}
+
+
       <br>
       <br>
 
@@ -31,9 +34,9 @@
 
         <div class="category js-flickity" data-flickity-options='{ "wrapAround": true }'>
 
-          <div class="category-cell"><a href="/maincat/Dogs">Dog</a></div>
-          <div class="category-cell"><a href="/maincat/Cats">Cat</a></div>
-          <div class="category-cell"><a href="/maincat/Penguins">Penguin</a></div>
+          <div class="category-cell"><a href="/collection/maincat">Dog</a></div>
+          <div class="category-cell"><a href="/collection/maincat">Cat</a></div>
+          <div class="category-cell"><a href="/collection/maincat">Penguin</a></div>
 
         </div>
       </div>
@@ -42,93 +45,70 @@
       {{!-- END TEST VERSION --}}
 
       {{!-- HBS VERSION --}}
+      {{!-- <div id="maincategory"> --}}
       {{!-- <div class="category js-flickity" data-flickity-options='{ "wrapAround": true }'>
         {{#each mainCat}}
-        <div class="category-cell"><a href="/maincat/{{this.name}}">{{this.name}}</a></div>
+        <div class="category-cell"><a href="/collection/maincat">{{this.name}}</a></div>
         {{/each}}
       </div> --}}
+      {{!-- </div> --}}
       {{!-- END HBS VERSION --}}
 
       <br>
 
       {{!-- CLIENT SIDE RENDERING DEPENDING ON CATEGORY CHOICE --}}
-      {{!-- TEST VERSION SUBCAT --}}
+      
       <div id="subcategory">
-        <div class="category js-flickity" data-flickity-options='{ "wrapAround": true }'>
+        {{> 'subcategory'}}
+        {{!-- <div class="category js-flickity" data-flickity-options='{ "wrapAround": true }'>
 
-          <div class="category-cell"><a href="/subcat/Tigers">Tigers</a></div>
-          <div class="category-cell"><a href="/subcat/Lions">Lions</a></div>
-          <div class="category-cell"><a href="/subcat/lazycats">Lazy Cats</a></div>
-          <div class="category-cell"><a href="/subcat/Cheetahs">Cheetahs</a></div>
-          <div class="category-cell"><a href="/subcat/sleepingcats">Sleeping Cats</a></div>
+          <div class="category-cell"><a href="/collection/subcat/Tigers">Tigers</a></div>
+          <div class="category-cell"><a href="/collection/subcat/Lions">Lions</a></div>
+          <div class="category-cell"><a href="/collection/subcat/lazycats">Lazy Cats</a></div>
+          <div class="category-cell"><a href="/collection/subcat/Cheetahs">Cheetahs</a></div>
+          <div class="category-cell"><a href="/collection/subcat/sleepingcats">Sleeping Cats</a></div>
 
-        </div>
+        </div> --}}
       </div>
-      {{!-- END TEST VERSION --}}
-      {{!-- HBS VERSION --}}
-      {{!-- <div class="subcategory js-flickity" data-flickity-options='{ "wrapAround": true }'>
-        {{#each subCat}}
-        <div class="category-cell"><a href="/maincat/{{this.name}}">{{this.name}}</a></div>
-        {{/each}}
-      </div> --}}
-      {{!-- END HBS VERSION --}}
+      
+      
 
       <br>
       <br>
       {{!-- CLIENT SIDE RENDERING DEPENDING ON SUBCAT --}}
-      
-        <div id="memeCarousel" class="carousel js-flickity" data-flickity='{ "cellAlign": "left", "contain": true }'>
-          <!-- images from unsplash.com -->
-          <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
-            <div class="carousel-caption">
-              <h3>Purrrr</h3>
-              <p>@topuser</p>
-              <span>cat, purrfect, rrrr</span>
-            </div>
-          </div>
-          <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
-            <div class="carousel-caption">
-              <h3>Me so purrfect</h3>
-              <p>cat, lazy cat, sleepy cat</p>
-            </div>
-          </div>
-          <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
-            <div class="carousel-caption">
-              <h3>Me so purrfect</h3>
-              <p>cat, lazy cat, sleepy cat</p>
-            </div>
-          </div>
-          <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
-          </div>
-          <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
-          </div>
-          <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
-          </div>
-          <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" alt="contrail" />
-          </div>
-          <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" alt="golden hour" />
-          </div>
-          <div class="carousel-cell">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" alt="flight formation" />
+
+      <div id="memeCarousel" class="carousel js-flickity" data-flickity='{ "cellAlign": "left", "contain": true }'>
+        <!-- images from unsplash.com -->
+        <div class="carousel-cell">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
+          <div class="carousel-caption">
+            <h3>Purrrr</h3>
+            <p>@topuser</p>
+            <span>cat, purrfect, rrrr</span>
           </div>
         </div>
-
+        <div class="carousel-cell">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
+          <div class="carousel-caption">
+            <h3>Me so purrfect</h3>
+            <p>cat, lazy cat, sleepy cat</p>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
+          <div class="carousel-caption">
+            <h3>Me so purrfect</h3>
+            <p>cat, lazy cat, sleepy cat</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="sidenav col-sm-2 ">
-</div>
+  <div class="sidenav col-sm-2 ">
+  </div>
 </div>
 </div>
 
-{{!-- <template>
+<template>
   {{template 'carousel'}}
-</template> --}}
+</template>
