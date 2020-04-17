@@ -50,6 +50,7 @@ app.use(isLoggedin);
 
 // HBS PARTIALS AND TEMPLATES
 hbs.registerPartials(`${__dirname}/views/partials`)
+
 hbs.registerHelper('template', (templateName) => {
   const data = fs.readFileSync(`./views/partials/${templateName}.hbs`, 'utf8');
   return data;
@@ -61,8 +62,8 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 app.use('/login', loginRouter );
-// Don't need same as index
-// app.use('/home', homeRouter);
+// Can we delete index.js?
+app.use('/home', homeRouter);
 app.use('/collection', collectionRouter);
 app.use('/create', createRouter);
 app.use('/about', aboutRouter);

@@ -62,20 +62,21 @@
               </td>
             </tr>
             {{!-- END OF EXAMPLES --}}
+            
             {{!-- HBS FORMAT --}}
-            {{#each meme}}
             <tr>
+              {{#each userMemes}}
               <td>
                 <div class="product-item">
-                  <a class="product-thumb" href="#"><img src="{{this.img}}" alt="Product"></a>
+                  <a class="product-thumb" href="#"><img src="{{this.img}}" alt="Meme"></a>
                   <div class="product-info">
-                    <h4 class="product-title"><a href="#">{{this.name}}</a></h4>
-                    <a href="/remove/{{this.id}}">Delete meme</a>
+                    <h4 class="product-title"><a href="#">{{this.text}}</a></h4>
+                    <a href="/remove/{{this._id}}">Delete meme</a>
                   </div>
                 </div>
               </td>
+              {{/each}}
             </tr>
-            {{/each}}
             {{!-- End HBS FORMAT --}}
           </tbody>
         </table>
