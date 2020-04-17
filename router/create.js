@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-  res.render('/create');
+  res.render('./collection/create');
 })
 
 module.exports = router;

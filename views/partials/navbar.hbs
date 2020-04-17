@@ -1,43 +1,39 @@
-{{!-- <nav class="navatar blue-grey">
-  <div class="nav-wrapper container">
-    <a href="#" class="brand-logo left">TZ MEME MAKER</a>
-   
 
-    <ul id="avatar" class="right">    
-      <li><a href="/home"><span>Home</span></a></li>
-      <li><a href="/collection"><span>Meme Collection</span></a></li>
-      <li><a href="/about"><span>About Services</span></a></li>
-      <li><a class="dropdown-trigger" href="#!" data-target='dropdown1'><img class="circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"></a></li>
-     </ul>
-  </div>
-</nav>
-
-<!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="/profile/{{this.id}}">{{this.username}}</a></li>
-    <li><a href="/logout">Logout</a></li>
-  </ul> --}}
-
-  {{!-- version 2 --}}
-  <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
-  <a class="navbar-brand" href="#">
-    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo">
-    TZ MEME MAKER
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbar-list-4">
-    <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/profile/{{id}}">{{username}}</a>
-          <a class="dropdown-item" href="/logout">Log Out</a>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">TZ</a>
         </div>
-      </li>   
-    </ul>
-  </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav ">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/collection">Meme Collection</a></li>
+                <li><a href="/about">About Services</a></li>
+            </ul>
+            {{#if isLoggedin}}
+            <ul class="dropdown nav navbar-nav navbar-right">
+                <li><a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown">
+                    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+                        class="img-circle special-img" width="25" height="25" class="rounded-circle"><b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/profile"><i class="fa fa-cog"></i> Account</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                </ul>
+                </li>
+            </ul>
+            {{else}}
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+            </ul>
+            {{/if}}
+        </div>
+    </div>
 </nav>
+

@@ -1,16 +1,21 @@
 {{> weaknavbar}}
 
-<div class="container row">
-    <div class="jumbotron col-sm-4 pull-center">
-        <form action="/login" method="post">
-        <label for="exampleInputEmail1">Login</label>
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="sidenav col-sm-4">
+    </div>
+    <div class="col-sm-5 text-left jumbotron pull-center"> 
+        <h2><label>Login</label></h2>
+        <form action="/login" method="POST">
             <div>
                 <label>Username:</label>
+                <br>
                 <input type="text" name="username"  placeholder="Enter login">
             </div>
             <br/>
             <div>
                 <label>Password:</label>
+                <br>
                 <input type="password" name="password"  placeholder="Enter password">
                <br/>
             <small id="emailHelp" class="form-text text-muted">We'll never share your login with anyone else.</small>
@@ -20,5 +25,8 @@
                 <input class="btn btn-primary" color="black" type="submit" value="Login">
             </div>
         </form>
+        <div class="sidenav col-sm-3 ">
     </div>
+    </div>
+</div>
 </div>
