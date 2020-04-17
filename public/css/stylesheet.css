@@ -497,3 +497,76 @@ a.list-group-item, .list-group-item-action {
 .flickity-prev-next-button:disabled {
   display: none;
 }
+
+
+/* Style for meme create */
+#imageLoader{
+  display: none;
+}
+#imageLoader + label{
+  font-size: 1em;
+  margin: 10px 4px;
+  background: #673ab7;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  width: 135px;
+}
+#imageLoader + label:hover{
+  background: #5c12dd;
+}
+#createMeme{
+  font-size: 1em;
+  margin: 10px 4px;
+  background: #15af37;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  width: 135px;
+}
+#createMeme:hover{
+  background: #2ece49;
+}
+canvas {
+  background: #ececec;
+}
+#edit-meme{
+  overflow: hidden;
+  position: relative;
+  width: fit-content;
+}
+#edit-meme span{
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+}
+
+#editForm{
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+#addTextSubmit{
+  font-size: 1em;
+  margin: 10px 4px;
+  background: #15af37;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  width: 135px;
+}
+#addTextSubmit:hover{
+  background: #2ece49;
+}
+#editForm select{
+  max-width: 100px;
+}
+#editForm input{
+  max-width: 300px;
+}
