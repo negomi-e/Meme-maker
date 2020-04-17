@@ -1,5 +1,8 @@
 const router = require('express').Router();
-const {Category, Meme} = require('../models/models')
+
+
+const { Meme, Category } = require('../models/models');
+
 
 router.get('/', async (req, res) => {
   let mainCat = await Category.find()
@@ -7,20 +10,22 @@ router.get('/', async (req, res) => {
   res.render('./collection/create', {mainCat});
 })
 
-// SAVE THE NEW IMAGE /save?
-// router.post('/', async (req, res)=>{
-//   console.log(req.body);
-  
-//   let newmeme = new Meme({
-//       author: req.session.user.username,
-//       mainCategory: req.body,
-//       subCategory: req.body,
-//       text: req.body.text,
-//       createdAt: new Date()
-//   })
+//edit category save
+router.post('/save', async (req, res) => {
+  const meme = new Meme({
+    img: req.body.imgData,
+    createdAt: new Date(),
+    author: req.session.user.username,
+    mainCategory: req.body,
+    subCategory: req.body,
+  })
+  await meme.save();
+  res.json({
+    success: true,
+  })
+});
 
-//   // await newmeme.save()
-//   res.redirect('/')
-// })
+
+
 
 module.exports = router;
