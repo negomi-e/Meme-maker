@@ -54,7 +54,7 @@
             </select>
 
             <p>Main Category:</p>
-            <select id='mainCat'>
+            <select id='mainCat' onChange="populateList()">
               {{#each mainCat}}
               <option value="{{this.mainCategory}}">{{this.mainCategory}}</option>
               {{/each}}
