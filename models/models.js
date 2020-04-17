@@ -37,7 +37,6 @@ memeSchema.statics.recent = async function(){
   return recent;
 }
 
-
 const Category = mongoose.model('Category', categorySchema)
 const User = mongoose.model('User', userSchema);
 const Meme = mongoose.model('Meme', memeSchema);

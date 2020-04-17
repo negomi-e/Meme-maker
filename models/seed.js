@@ -27,7 +27,7 @@ async function createCategory(name, array) {
 
   }
   await category.save();
-  // console.log(category);
+  
 }
 
 // createCategory('Music', cat1)
