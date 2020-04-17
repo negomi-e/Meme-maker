@@ -394,6 +394,7 @@ a.list-group-item, .list-group-item-action {
   ;
 }
 
+
 .subcategory {
   background: #374250;
   ;
@@ -406,6 +407,11 @@ a.list-group-item, .list-group-item-action {
   background: grey;
   text-align: center;
   color: white;
+}
+
+.category-cell a{
+  color: white;
+  font-weight: bold;
 }
 
 
