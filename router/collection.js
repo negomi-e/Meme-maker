@@ -19,7 +19,7 @@ router.get('/maincat/:name', async (req, res)=>{
 
 router.get('/subcat/:name', async (req, res)=>{
   let subcat = req.params.name;
-  let memes = await Meme.findAll({subCategory: subcat});
+  let memes = await Meme.find({subCategory: subcat});
   res.json({memes})
 })
 

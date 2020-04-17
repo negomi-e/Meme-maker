@@ -37,16 +37,17 @@ mainCat.addEventListener('click', async (event) => {
     const template = window.Handlebars.compile(hbs);
 
     var elem = document.getElementById('subcategory');
-    var flkty = new Flickity(elem, {
+
+    
+    elem.innerHTML = template({
+        subCat: options.subcats
+    });
+    
+    var flkty = new Flickity(elem.querySelector('.category'), {
         // options
         wrapAround: true,
         contain: true
     });
-
-    elem.innerHTML = template({
-        subCat: options.subcats
-    });
-
 })
 
 //Render carousel once subcat selected
@@ -61,11 +62,11 @@ subCat.addEventListener('click', async (event) => {
 
     let result = await response.json();
 
-    const hbsResponse = await fetch('/views/partials/carousel.hbs');
+    const hbsResponse = await fetch('/partials/carousel.hbs');
     const hbs = await hbsResponse.text();
     const template = window.Handlebars.compile(hbs);
-    carousel.innerHTML += template({
-        result
+    carousel.innerHTML = template({
+        result: result.memes
     });
 }
 )
@@ -73,25 +74,25 @@ subCat.addEventListener('click', async (event) => {
 
 
 //Render memes by tag search
-search.addEventListener('input', async (event) => {
+// search.addEventListener('input', async (event) => {
 
-    event.preventDefault();
-    let response = await fetch(event.target.value, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ input: event.target.value })
-    })
+//     event.preventDefault();
+//     let response = await fetch(event.target.value, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ input: event.target.value })
+//     })
 
-    let result = await response.json();
+//     let result = await response.json();
 
-    const hbsResponse = await fetch('/views/partials/carousel.hbs');
-    const hbs = await hbsResponse.text();
-    const template = window.Handlebars.compile(hbs);
-    carousel.innerHTML += template({
-        result
-    });
+//     const hbsResponse = await fetch('/views/partials/carousel.hbs');
+//     const hbs = await hbsResponse.text();
+//     const template = window.Handlebars.compile(hbs);
+//     carousel.innerHTML += template({
+//         result
+//     });
 
-})
+// })
 
