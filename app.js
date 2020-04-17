@@ -30,9 +30,10 @@ const logoutRouter = require('./router/logout')
 const path = require('path');
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'hbs');
 app.use(express.static('public'));
+app.use(express.static('views'))
 app.use(express.urlencoded({ extended: true }));
 
 sessionapp(app);
@@ -53,6 +54,7 @@ app.use(isLoggedin);
 hbs.registerPartials(`${__dirname}/views/partials`)
 
 hbs.registerHelper('template', (templateName) => {
+
   const data = fs.readFileSync(`./views/partials/${templateName}.hbs`, 'utf8');
   return data;
 });
