@@ -85,21 +85,57 @@ document.querySelector('#createMeme').addEventListener('click', async (event) =>
     ctx.fillText(text.innerText, x, y);
   }
 
+  let mainselect = document.getElementById('mainCat')
+  let subselect = document.getElementById('subCat')
   const imgURL = canvas.toDataURL('image/png');
   const req = await fetch('/create/save', {
     method: "post",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `imgData=${window.encodeURIComponent(imgURL)}`,
+    body: `imgData=${window.encodeURIComponent(imgURL)}&mainCat=${mainselect.value}&subCat=${subselect.value}`,
   })
 
   debugger;
   const res = await req.json();
-  if( res.success ){
+  if (res.success) {
     window.location = '/';
-  }else{
+  } else {
     alert('error, try again');
   }
 })
 
+
+
+
+
+
+
+// Category List render
+async function populateList() {
+  let mainselect = document.getElementById('mainCat')
+  let subselect = document.getElementById('subCat')
+  subselect.options.length = 0
+
+  const category = mainselect.value
+  
+
+
+  let response = await fetch(`/collection/maincat/${category}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+
+  let result = await response.json()
+  let options = result.subcats
+ 
+
+  for (let i = 0; i < options.length; i += 1) {
+    const opt = document.createElement('Option');
+    subselect.appendChild(opt);
+    opt.innerText = options[i].category;
+    opt.value = options[i].category;
+  }
+}

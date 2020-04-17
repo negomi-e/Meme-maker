@@ -403,8 +403,9 @@ a.list-group-item, .list-group-item-action {
   width: 75%;;
   height: 25px;
   margin-right: 10px;
-  background: #9da9b9;
+  background: grey;
   text-align: center;
+  color: white;
 }
 
 

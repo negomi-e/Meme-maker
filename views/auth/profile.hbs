@@ -48,37 +48,10 @@
             </tr>
           </thead>
           <tbody>
-
-            {{!-- EXAMPLES --}}
-            <tr>
-              <td>
-                <div class="product-item">
-                  <a class="product-thumb" href="#"><img src="https://via.placeholder.com/220x180/FF0000/000000"
-                      alt="Product"></a>
-                  <div class="product-info">
-                    <h4 class="product-title"><a href="#">First meme</a></h4>
-                    <a href="/remove/{{id}}">Delete meme</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="product-item">
-                  <a class="product-thumb" href="#"><img src="https://via.placeholder.com/220x180/FF0000/000000"
-                      alt="Product"></a>
-                  <div class="product-info">
-                    <h4 class="product-title"><a href="#">Second meme</a></h4>
-                    <a href="/remove/{{id}}">Delete meme</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            {{!-- END OF EXAMPLES --}}
-
             {{!-- HBS FORMAT --}}
-            <tr>
+            
               {{#each userMemes}}
+              <tr>
               <td>
                 <div class="product-item">
                   <a class="product-thumb" href="#"><img src="{{this.img}}" alt="Meme"></a>
@@ -88,8 +61,9 @@
                   </div>
                 </div>
               </td>
+              </tr>
               {{/each}}
-            </tr>
+            
             {{!-- End HBS FORMAT --}}
           </tbody>
         </table>
